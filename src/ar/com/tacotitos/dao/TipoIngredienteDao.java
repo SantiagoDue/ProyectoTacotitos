@@ -7,6 +7,7 @@ package ar.com.tacotitos.dao;
 import ar.com.tacotitos.dto.TipoIngredienteDTO;
 import ar.com.tacotitos.utils.DBConnector;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -24,7 +25,9 @@ public class TipoIngredienteDao {
     public List<TipoIngredienteDTO> getAll (){
         List<TipoIngredienteDTO> salida = new ArrayList<TipoIngredienteDTO>();
         try {
-        Connection con = db.connect();
+        System.out.println("Me conecte!");
+                
+            Connection con = db.connect();
         TipoIngredienteDTO ti; 
         String sql = "SELECT id, nombre, cant_max FROM ingrediente_tipo";
         Statement st = con.createStatement();
@@ -41,5 +44,22 @@ public class TipoIngredienteDao {
             return salida;
         }
         return salida;
+    }
+    
+    public Integer guardarNuevoTipoIngrediente (String nombreTipoIngrediente, Integer cantidad){
+        try {
+            Connection con = db.connect();
+            String sql = "INSERT INTO ingrediente_tipo (nombre, cant_max) VALUES (?,?)";
+            PreparedStatement pst = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pst.setString(1, nombreTipoIngrediente);
+            pst.setInt(2, cantidad);
+            int row = pst.executeUpdate();
+            return row;
+        } catch (SQLException e) {
+            System.out.println("Error al recuperar los datos de la base :(");
+            e.printStackTrace();
+            return 0;
+        }
+        
     }
 }

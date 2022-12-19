@@ -9,15 +9,24 @@ package ar.com.tacotitos.dto;
  * @author Due
  */
 public class IngredienteDTO {
-    public Long id;
-    public String nombre;
-    public Long tipoIngrediente;//ID de la tabla a la que hace referencia
-    public Integer precio; 
+    private Long id;
+    private String nombre;
+    private Long id_tipo_ingrediente;//ID de la tabla a la que hace referencia
+    private Integer precio; 
+    private Boolean baja;
     
-    public IngredienteDTO (String nombre, Long tipoIngrediente, Integer precio){
+    public IngredienteDTO (String nombre, Long id_tipo_ingrediente, Integer precio){
         this.nombre = nombre;
-        this.tipoIngrediente = tipoIngrediente;
+        this.id_tipo_ingrediente = id_tipo_ingrediente;
         this.precio = precio;
+    }
+    
+    public IngredienteDTO (Long id, String nombre, Long id_tipo_ingrediente, Integer precio, Boolean baja){
+        this.id = id;
+        this.nombre = nombre;
+        this.id_tipo_ingrediente = id_tipo_ingrediente;
+        this.precio = precio;
+        this.baja = baja;
     }
     
     public Long getId() {
@@ -37,11 +46,11 @@ public class IngredienteDTO {
     }
     
     public Long getTipoIngrediente() {
-        return tipoIngrediente;
+        return id_tipo_ingrediente;
     }
     
-    public void setTipoIngrediente (Long tipoIngrediente) {
-        this.tipoIngrediente = tipoIngrediente;
+    public void setTipoIngrediente (Long id_tipo_ingrediente) {
+        this.id_tipo_ingrediente = id_tipo_ingrediente;
     }
     
     public Integer getPrecio() {
@@ -50,5 +59,13 @@ public class IngredienteDTO {
     
     public void setPrecio (Integer precio) {
         this.precio = precio;
+    }
+    
+    public Boolean getBaja() {
+        return baja;
+    }
+    
+    public void setBaja (Boolean baja) {
+        this.baja = baja;
     }
 }

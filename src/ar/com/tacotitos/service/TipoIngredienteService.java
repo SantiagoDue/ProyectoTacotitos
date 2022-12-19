@@ -19,4 +19,8 @@ public class TipoIngredienteService {
     public List<TipoIngredienteDTO> getAll(){
         return dao.getAll();
     };
+    
+    public Integer altaTipoProducto(String nombreTipoProducto, Integer cantidad){
+        return dao.guardarNuevoTipoIngrediente(nombreTipoProducto, cantidad);
+    };
 }

@@ -11,9 +11,38 @@ import java.util.Date;
  * @author Due
  */
 public class PedidoDTO {
-    private Integer idPedido;
+    private Long id;
     private Date fecha;
-    private Integer precioTotal;
-    private Boolean conPedido;
+    private Long precioTotal;
     
+    
+    public PedidoDTO(Long id, Date fecha, Long precioTotal) {
+     this.id = id;
+     this.fecha = fecha;
+     this.precioTotal = precioTotal;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+    
+    public void setId (Long id) {
+        this.id = id;
+    }
+    
+    public Date getFecha() {
+        return fecha;
+    }
+    
+    public void setFecha (Date fecha) {
+        this.fecha = fecha;
+    }
+    
+     public Long getPrecioTotal() {
+        return precioTotal;
+    }
+    
+    public void setPrecioTotal (Long precioTotal) {
+        this.precioTotal = precioTotal;
+    }
 }

@@ -4,6 +4,8 @@
  */
 package ar.com.tacotitos.controller;
 
+import ar.com.tacotitos.dto.PedidoDTO;
+import ar.com.tacotitos.service.PedidoService;
 import java.util.Date;
 
 /**
@@ -11,5 +13,11 @@ import java.util.Date;
  * @author Due
  */
 public class PedidoController {
+    
+    PedidoService service = new PedidoService();
+    
+    public PedidoDTO getNuevoPedido() {
+        return service.getNuevoPedido();
+    }
     
 }

@@ -19,6 +19,10 @@ public class IngredienteService {
     TipoIngredienteDao tiDao = new TipoIngredienteDao();
     IngredienteDao iDao = new IngredienteDao();
     
+    public List<IngredienteDTO> getByTipoIngredienteId(Long idTipoIngrediente){
+        return iDao.getByTipoIngredienteId(idTipoIngrediente);
+    };
+    
     public Integer save(String nombre, String precio, String tipoIngrediente) {
         IngredienteDTO data = null;
         List<TipoIngredienteDTO> lista = tiDao.getAll();

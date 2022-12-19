@@ -21,4 +21,10 @@ public class TipoIngredienteController {
         List<TipoIngredienteDTO> listaTipoIngredientes = service.getAll();
         return listaTipoIngredientes;
     }
+    
+    public Integer ingresarNuevoTipoIngrediente(String tipoIngrediente, Integer cantidad) {
+        
+        Integer altaTipoProducto = service.altaTipoProducto(tipoIngrediente, cantidad);
+        return altaTipoProducto;
+    }
 }
